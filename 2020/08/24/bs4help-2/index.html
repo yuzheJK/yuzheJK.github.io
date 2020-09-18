@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>bs4help(2) | JKding233</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="BeautifulSoup系列文章">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bs4help(2)">
+<meta property="og:url" content="http://yoursite.com/2020/08/24/bs4help-2/index.html">
+<meta property="og:site_name" content="JKding233">
+<meta property="og:description" content="BeautifulSoup系列文章">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-24T03:41:03.000Z">
+<meta property="article:modified_time" content="2020-09-13T10:07:10.229Z">
+<meta property="article:author" content="JKding233">
+<meta property="article:tag" content="BeautifulSoup">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="JKding233" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">JKding233</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-bs4help-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/24/bs4help-2/" class="article-date">
+  <time datetime="2020-08-24T03:41:03.000Z" itemprop="datePublished">2020-08-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      bs4help(2)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>BeautifulSoup系列文章</p>
+<a id="more"></a>
+
+<h1 id="BeautifulSoup库解析器"><a href="#BeautifulSoup库解析器" class="headerlink" title="BeautifulSoup库解析器"></a>BeautifulSoup库解析器</h1><table>
+<thead>
+<tr>
+<th align="center">解析器</th>
+<th align="center">使用方法</th>
+<th align="center">条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">bs4的HTML解析器</td>
+<td align="center">BeautifulSoup(mk,’html.parser’)</td>
+<td align="center">安装bs4库</td>
+</tr>
+<tr>
+<td align="center">lxml的HTML解析器</td>
+<td align="center">BeautifulSoup(mk,’lxml’)</td>
+<td align="center">pip install lxml</td>
+</tr>
+<tr>
+<td align="center">lxml的XML解析器</td>
+<td align="center">BeautifulSoup(mk,’xml’)</td>
+<td align="center">pip install lxml</td>
+</tr>
+<tr>
+<td align="center">html5lib的解析器</td>
+<td align="center">BeautifulSoup(mk,’html5lib’)</td>
+<td align="center">pip install html5lib</td>
+</tr>
+</tbody></table>
+<h2 id="findAll"><a href="#findAll" class="headerlink" title="findAll()"></a>findAll()</h2><pre><code class="hljs python">findAll(name=<span class="hljs-literal">None</span>, attrs=&#123;&#125;, recursive=<span class="hljs-literal">True</span>, text=<span class="hljs-literal">None</span>, limit=<span class="hljs-literal">None</span>, **kwargs)</code></pre>
+<p>参数name 匹配tags的名字，获得相应的结果集。 有几种方法去匹配name<br>keyword参数用于筛选tag的属性<br>text 是一个用于搜索NavigableString对象的参数。 它的值可以是字符串，一个正则表达式， 一个list或dictionary，True或None<br>recursive 是一个布尔参数(默认为True)，用于指定Beautiful Soup遍历整个剖析树， 还是只查找当前的子标签或者剖析对象<br>设置limit 参数可以让Beautiful Soup 在找到特定个数的匹配时停止搜索</p>
+<h3 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h3><pre><code class="hljs css">&lt;&gt;<span class="hljs-selector-class">.find</span>()搜索且只返回一个结果，同<span class="hljs-selector-class">.find_all</span>()参数
+&lt;&gt;<span class="hljs-selector-class">.find_parents</span>()在先辈节点中搜索，返回列表类型，同<span class="hljs-selector-class">.find_all</span>()参数
+&lt;&gt;<span class="hljs-selector-class">.find_parent</span>()在先辈节点中返回一个结果，同<span class="hljs-selector-class">.find</span>()参数
+&lt;&gt;<span class="hljs-selector-class">.find_next_siblings</span>()在后续平行节点中搜索，返回列表类型，同<span class="hljs-selector-class">.find_all</span>()参数
+&lt;&gt;<span class="hljs-selector-class">.find_next_sibling</span>()在后续平行节点中返回一个结果，同<span class="hljs-selector-class">.find</span>()参数
+&lt;&gt;<span class="hljs-selector-class">.find_previous_siblings</span>()在前序平行节点中搜索，返回列表类型，同<span class="hljs-selector-class">.find_all</span>()参数
+&lt;&gt;<span class="hljs-selector-class">.find_previous_sibling</span>()在前序平行节点中返回一个结果，同<span class="hljs-selector-class">.find</span>()参数</code></pre>
+<h2 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h2><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> requests
+<span class="hljs-meta">&gt;&gt;&gt; </span>r = requests.get(<span class="hljs-string">&quot;http://python123.io/ws/demo.html&quot;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+<span class="hljs-meta">&gt;&gt;&gt; </span>soup = BeautifulSoup(r.text,<span class="hljs-string">&#x27;html.parser&#x27;</span>)</code></pre>
+<p>Beautiful Soup支持大部分的CSS选择器 ,在 Tag 或 BeautifulSoup 对象的 .select() 方法中传入字符串参数,即可使用CSS选择器的语法找到tag</p>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>soup.select(<span class="hljs-string">&quot;title&quot;</span>)
+[&lt;title&gt;This is a python demo page&lt;/title&gt;]</code></pre>
+
+<p>通过tag标签逐层查找</p>
+<pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>soup.select(<span class="hljs-string">&quot;body a&quot;</span>)
+[&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt;, &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;]</code></pre>
+
+<p>找到某个tag标签下的直接子标签</p>
+<pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>soup.select(<span class="hljs-string">&quot;body &gt; a&quot;</span>)
+[]
+<span class="hljs-meta">&gt;&gt;&gt; </span>soup.select(<span class="hljs-string">&quot;body &gt; p&quot;</span>)
+[&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;, &lt;p class=&quot;course&quot;&gt;Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:
+
+&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt; and &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;.&lt;/p&gt;]
+<span class="hljs-meta">&gt;&gt;&gt; </span>soup.select(<span class="hljs-string">&quot;body &gt; p:nth-of-type(1)&quot;</span>)
+[&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;]</code></pre>
+
+<p>找到兄弟节点标签</p>
+<pre><code class="hljs python">soup.select(<span class="hljs-string">&quot;#link1 ~ .sister&quot;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,</span>
+<span class="hljs-comment">#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot;  id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]</span>
+
+soup.select(<span class="hljs-string">&quot;#link1 + .sister&quot;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;]</span></code></pre>
+
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><pre><code class="hljs python">soup.select(<span class="hljs-string">&quot;.sister&quot;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,</span>
+<span class="hljs-comment">#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,</span>
+<span class="hljs-comment">#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]</span>
+
+soup.select(<span class="hljs-string">&quot;[class~=sister]&quot;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,</span>
+<span class="hljs-comment">#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,</span>
+<span class="hljs-comment">#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]</span></code></pre>
+
+<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><pre><code class="hljs python">soup.select(<span class="hljs-string">&quot;#link1&quot;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;]</span>
+
+soup.select(<span class="hljs-string">&quot;a#link2&quot;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;]</span></code></pre>
+
+<h3 id="属性查找"><a href="#属性查找" class="headerlink" title="属性查找"></a>属性查找</h3><h4 id="是否存在某个属性"><a href="#是否存在某个属性" class="headerlink" title="是否存在某个属性"></a>是否存在某个属性</h4><pre><code class="hljs python">soup.select(<span class="hljs-string">&#x27;a[href]&#x27;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,</span>
+<span class="hljs-comment">#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,</span>
+<span class="hljs-comment">#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]</span></code></pre>
+<h4 id="通过属性的值查找"><a href="#通过属性的值查找" class="headerlink" title="通过属性的值查找"></a>通过属性的值查找</h4><pre><code class="hljs python">asoup.select(<span class="hljs-string">&#x27;a[href=&quot;http://example.com/elsie&quot;]&#x27;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;]</span>
+
+soup.select(<span class="hljs-string">&#x27;a[href^=&quot;http://example.com/&quot;]&#x27;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,</span>
+<span class="hljs-comment">#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,</span>
+<span class="hljs-comment">#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]</span>
+
+soup.select(<span class="hljs-string">&#x27;a[href$=&quot;tillie&quot;]&#x27;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]</span>
+
+soup.select(<span class="hljs-string">&#x27;a[href*=&quot;.com/el&quot;]&#x27;</span>)
+<span class="hljs-comment"># [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;]</span></code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/24/bs4help-2/" data-id="ckf7kh6la0001skv74wjpamxn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/24/%E8%BF%87%E6%BB%A4%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          过滤器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/19/openpyxl-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">openpyxl(1)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/conda/" rel="tag">conda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/" rel="tag">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql-libs/" rel="tag">sql-libs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/" rel="tag">爬虫项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A0%81/" rel="tag">编码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BeautifulSoup/" style="font-size: 20px;">BeautifulSoup</a> <a href="/tags/conda/" style="font-size: 10px;">conda</a> <a href="/tags/mysqlclient/" style="font-size: 10px;">mysqlclient</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/sql-libs/" style="font-size: 10px;">sql-libs</a> <a href="/tags/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">爬虫项目</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 15px;">编码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/09/12/python%E6%93%8D%E4%BD%9Cmysql/">mysqlclient简单使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/12/conda%E5%AE%89%E8%A3%85mysqlclient%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">conda安装mysqlclient遇到的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/10/%E6%9F%90%E5%8A%A8%E6%BC%AB%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E7%88%AC%E8%99%AB/">某动漫网站视频爬虫</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/08/%E7%88%AC%E8%99%AB%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/">爬虫中文乱码及解决</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/08/%E7%88%AC%E8%99%AB%E7%BC%96%E7%A0%81%E4%BB%8B%E7%BB%8D/">爬虫编码介绍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 JKding233<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>过滤器 | JKding233</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="过滤器介绍 find_all() 方法前,先介绍一下过滤器的类型  ,这些过滤器贯穿整个搜索的API.过滤器可以被用在tag的name中,节点的属性中,字符串中或他们的混合中.  摘录于https:&#x2F;&#x2F;www.crummy.com&#x2F;software&#x2F;BeautifulSoup&#x2F;bs4&#x2F;doc&#x2F;index.zh.html#id25">
+<meta property="og:type" content="article">
+<meta property="og:title" content="过滤器">
+<meta property="og:url" content="http://yoursite.com/2020/08/24/%E8%BF%87%E6%BB%A4%E5%99%A8/index.html">
+<meta property="og:site_name" content="JKding233">
+<meta property="og:description" content="过滤器介绍 find_all() 方法前,先介绍一下过滤器的类型  ,这些过滤器贯穿整个搜索的API.过滤器可以被用在tag的name中,节点的属性中,字符串中或他们的混合中.  摘录于https:&#x2F;&#x2F;www.crummy.com&#x2F;software&#x2F;BeautifulSoup&#x2F;bs4&#x2F;doc&#x2F;index.zh.html#id25">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-24T03:43:45.000Z">
+<meta property="article:modified_time" content="2020-09-13T10:07:10.229Z">
+<meta property="article:author" content="JKding233">
+<meta property="article:tag" content="BeautifulSoup">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="JKding233" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">JKding233</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-过滤器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/24/%E8%BF%87%E6%BB%A4%E5%99%A8/" class="article-date">
+  <time datetime="2020-08-24T03:43:45.000Z" itemprop="datePublished">2020-08-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      过滤器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><p>介绍 <code>find_all()</code> 方法前,先介绍一下过滤器的类型  ,这些过滤器贯穿整个搜索的API.过滤器可以被用在tag的name中,节点的属性中,字符串中或他们的混合中.</p>
+<blockquote>
+<p>摘录于<a target="_blank" rel="noopener" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html#id25">https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html#id25</a></p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>最简单的过滤器是字符串.在搜索方法中传入一个字符串参数,Beautiful Soup会查找与字符串完整匹配的内容,下面的例子用于查找文档中所有的<code>&lt;b&gt;</code>标签:</p>
+<pre><code class="hljs python">soup.find_all(<span class="hljs-string">&#x27;b&#x27;</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>[&lt;b&gt;The Dormouse<span class="hljs-string">&#x27;s story&lt;/b&gt;]</span></code></pre>
+
+<p>如果传入字节码参数,Beautiful Soup会当作UTF-8编码,可以传入一段Unicode 编码来避免Beautiful Soup解析编码出错</p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>如果传入正则表达式作为参数,Beautiful Soup会通过正则表达式的 <code>match()</code> 来匹配内容.下面例子中找出所有以b开头的标签,这表示<code>&lt;body&gt;</code>和<code>&lt;b&gt;</code>标签都应该被找到:</p>
+<pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> re
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> tag <span class="hljs-keyword">in</span> soup.find_all(re.compile(<span class="hljs-string">&quot;^b&quot;</span>)):
+		print(tag.name)
+ body
+ b</code></pre>
+
+<p>下面代码找出所有名字中包含”t”的标签:</p>
+<pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> tag <span class="hljs-keyword">in</span> soup.find_all(re.compile(<span class="hljs-string">&quot;t&quot;</span>)):
+	print(tag.name)
+ html
+ title</code></pre>
+
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>如果传入列表参数,Beautiful Soup会将与列表中任一元素匹配的内容返回.下面代码找到文档中所有<code>&lt;a&gt;</code>标签和<code>&lt;b&gt;</code>标签:</p>
+<pre><code class="hljs python">soup.find_all([<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>])
+ [&lt;b&gt;The Dormouse<span class="hljs-string">&#x27;s story&lt;/b&gt;,</span>
+<span class="hljs-string">  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,</span>
+<span class="hljs-string">  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,</span>
+<span class="hljs-string">  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]</span></code></pre>
+
+<h3 id="True"><a href="#True" class="headerlink" title="True"></a>True</h3><p><code>True</code> 可以匹配任何值,下面代码查找到所有的tag,但是不会返回字符串节点</p>
+<pre><code class="hljs python"><span class="hljs-keyword">for</span> tag <span class="hljs-keyword">in</span> soup.find_all(<span class="hljs-literal">True</span>):
+    print(tag.name)
+html
+head
+title
+body
+p
+b
+p
+a
+a
+a
+p</code></pre>
+
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>如果没有合适过滤器,那么还可以定义一个方法,方法只接受一个元素参数 ,如果这个方法返回 <code>True</code> 表示当前元素匹配并且被找到,如果不是则反回 <code>False</code></p>
+<p>下面方法校验了当前元素,如果包含 <code>class</code> 属性却不包含 <code>id</code> 属性,那么将返回 <code>True</code>:</p>
+<pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">has_class_but_no_id</span>(<span class="hljs-params">tag</span>):</span>
+    <span class="hljs-keyword">return</span> tag.has_attr(<span class="hljs-string">&#x27;class&#x27;</span>) <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> tag.has_attr(<span class="hljs-string">&#x27;id&#x27;</span>)</code></pre>
+
+<p>将这个方法作为参数传入 <code>find_all()</code> 方法,将得到所有<code>&lt;p&gt;</code>标签:</p>
+<pre><code class="hljs python">soup.find_all(has_class_but_no_id)
+<span class="hljs-comment"># [&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse&#x27;s story&lt;/b&gt;&lt;/p&gt;,</span>
+<span class="hljs-comment">#  &lt;p class=&quot;story&quot;&gt;Once upon a time there were...&lt;/p&gt;,</span>
+<span class="hljs-comment">#  &lt;p class=&quot;story&quot;&gt;...&lt;/p&gt;]</span></code></pre>
+
+<p>返回结果中只有<code>&lt;p&gt;</code>标签没有<code>&lt;a&gt;</code>标签,因为<code>&lt;a&gt;</code>标签还定义了<code>id</code>,没有返回<code>&lt;html&gt;</code>和<code>&lt;head&gt;</code>,因为<code>&lt;html&gt;</code>和<code>&lt;head&gt;</code>中没有定义<code>class</code>属性.</p>
+<p>下面代码找到所有被文字包含的节点内容:</p>
+<pre><code class="hljs python"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> NavigableString
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">surrounded_by_strings</span>(<span class="hljs-params">tag</span>):</span>
+	<span class="hljs-keyword">return</span> (isinstance(tag.next_element, NavigableString)<span class="hljs-keyword">and</span> isinstance(tag.previous_element, NavigableString))
+
+<span class="hljs-keyword">for</span> tag <span class="hljs-keyword">in</span> soup.find_all(surrounded_by_strings):
+	<span class="hljs-keyword">print</span> tag.name
+<span class="hljs-comment"># p</span>
+<span class="hljs-comment"># a</span>
+<span class="hljs-comment"># a</span>
+<span class="hljs-comment"># a</span>
+<span class="hljs-comment"># p</span></code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/24/%E8%BF%87%E6%BB%A4%E5%99%A8/" data-id="ckf7kh6li000fskv76q5u22oa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/09/08/%E7%88%AC%E8%99%AB%E7%BC%96%E7%A0%81%E4%BB%8B%E7%BB%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          爬虫编码介绍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/24/bs4help-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">bs4help(2)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/conda/" rel="tag">conda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/" rel="tag">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql-libs/" rel="tag">sql-libs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/" rel="tag">爬虫项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A0%81/" rel="tag">编码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BeautifulSoup/" style="font-size: 20px;">BeautifulSoup</a> <a href="/tags/conda/" style="font-size: 10px;">conda</a> <a href="/tags/mysqlclient/" style="font-size: 10px;">mysqlclient</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/sql-libs/" style="font-size: 10px;">sql-libs</a> <a href="/tags/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">爬虫项目</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 15px;">编码</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/09/12/python%E6%93%8D%E4%BD%9Cmysql/">mysqlclient简单使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/12/conda%E5%AE%89%E8%A3%85mysqlclient%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">conda安装mysqlclient遇到的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/10/%E6%9F%90%E5%8A%A8%E6%BC%AB%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E7%88%AC%E8%99%AB/">某动漫网站视频爬虫</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/08/%E7%88%AC%E8%99%AB%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/">爬虫中文乱码及解决</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/08/%E7%88%AC%E8%99%AB%E7%BC%96%E7%A0%81%E4%BB%8B%E7%BB%8D/">爬虫编码介绍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 JKding233<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
