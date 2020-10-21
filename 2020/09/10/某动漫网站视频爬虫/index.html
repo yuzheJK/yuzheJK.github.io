@@ -1,94 +1,177 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html lang="en">
 
-  
-  <title>某动漫网站视频爬虫 | JKding233</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="某动漫网站视频爬虫上个月月底写的一个爬虫，获取一个动漫的所有视频 因为是小站，只测试下载了几个视频，理论可以把一个动漫的视频全部下载成功 为了不提升网站负担，这里就不给网站域名了">
-<meta property="og:type" content="article">
-<meta property="og:title" content="某动漫网站视频爬虫">
-<meta property="og:url" content="http://yoursite.com/2020/09/10/%E6%9F%90%E5%8A%A8%E6%BC%AB%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E7%88%AC%E8%99%AB/index.html">
-<meta property="og:site_name" content="JKding233">
-<meta property="og:description" content="某动漫网站视频爬虫上个月月底写的一个爬虫，获取一个动漫的所有视频 因为是小站，只测试下载了几个视频，理论可以把一个动漫的视频全部下载成功 为了不提升网站负担，这里就不给网站域名了">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-10T07:51:39.000Z">
-<meta property="article:modified_time" content="2020-09-13T10:07:10.229Z">
-<meta property="article:author" content="JKding233">
-<meta property="article:tag" content="爬虫项目">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="JKding233" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="某动漫网站视频爬虫上个月月底写的一个爬虫，获取一个动漫的所有视频
+因为是小站，只测试下载了几个视频，理论可以把一个动漫的视频全部下载成功
+为了不提升网站负担，这里就不给网站域名了">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="JKding233">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="某动漫网站视频爬虫"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="JKding233"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>某动漫网站视频爬虫 - JKding233</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
 <link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
 
 <meta name="generator" content="Hexo 5.1.1"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">JKding233</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-某动漫网站视频爬虫" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/10/%E6%9F%90%E5%8A%A8%E6%BC%AB%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E7%88%AC%E8%99%AB/" class="article-date">
-  <time datetime="2020-09-10T07:51:39.000Z" itemprop="datePublished">2020-09-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      某动漫网站视频爬虫
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2020/09/10/%E6%9F%90%E5%8A%A8%E6%BC%AB%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E7%88%AC%E8%99%AB/">
+                某动漫网站视频爬虫
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-09-10</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
         <h2 id="某动漫网站视频爬虫"><a href="#某动漫网站视频爬虫" class="headerlink" title="某动漫网站视频爬虫"></a>某动漫网站视频爬虫</h2><p>上个月月底写的一个爬虫，获取一个动漫的所有视频</p>
 <p>因为是小站，只测试下载了几个视频，理论可以把一个动漫的视频全部下载成功</p>
 <p>为了不提升网站负担，这里就不给网站域名了</p>
@@ -97,236 +180,198 @@
 <blockquote>
 <p>初学爬虫，代码很菜······</p>
 </blockquote>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span>
-<span class="hljs-string">&quot;&quot;&quot;</span>
-<span class="hljs-string">Created on Fri Aug 28 17:21:10 2020</span>
-<span class="hljs-string"></span>
-<span class="hljs-string">@author: JKding233</span>
-<span class="hljs-string">&quot;&quot;&quot;</span>
-<span class="hljs-string">&quot;&quot;&quot;</span>
-<span class="hljs-string">网址:http://www.xxxxx/</span>
-<span class="hljs-string">目的</span>
-<span class="hljs-string">获取视频文件</span>
-<span class="hljs-string">8月28日，代码功能基本实现</span>
-<span class="hljs-string">&quot;&quot;&quot;</span>
-<span class="hljs-keyword">import</span> requests
-<span class="hljs-keyword">import</span> re
-<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
-
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getHTML</span>(<span class="hljs-params">url</span>):</span>
-    <span class="hljs-string">&quot;&quot;&quot;访问网站获取页面，返回页面&quot;&quot;&quot;</span>
-    header = &#123;
-        <span class="hljs-string">&#x27;Host&#x27;</span>:<span class="hljs-string">&#x27;www.xxxx&#x27;</span>,
-        <span class="hljs-string">&#x27;User-agent&#x27;</span>:<span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0&#x27;</span>
-    &#125;
-    r = requests.get(url,headers=header)
-    r.encoding = <span class="hljs-string">&#x27;utf-8&#x27;</span>
-    <span class="hljs-keyword">return</span> r
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">Created on Fri Aug 28 17:21:10 2020</span><br><span class="line"></span><br><span class="line">@author: JKding233</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">网址:http:&#x2F;&#x2F;www.xxxxx&#x2F;</span><br><span class="line">目的</span><br><span class="line">获取视频文件</span><br><span class="line">8月28日，代码功能基本实现</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">def getHTML(url):</span><br><span class="line">    &quot;&quot;&quot;访问网站获取页面，返回页面&quot;&quot;&quot;</span><br><span class="line">    header &#x3D; &#123;</span><br><span class="line">        &#39;Host&#39;:&#39;www.xxxx&#39;,</span><br><span class="line">        &#39;User-agent&#39;:&#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko&#x2F;20100101 Firefox&#x2F;67.0&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    r &#x3D; requests.get(url,headers&#x3D;header)</span><br><span class="line">    r.encoding &#x3D; &#39;utf-8&#39;</span><br><span class="line">    return r</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def GetMp4HTML(url):</span><br><span class="line">    &quot;&quot;&quot;访问网站获取页面，返回页面&quot;&quot;&quot;</span><br><span class="line">    header &#x3D; &#123;</span><br><span class="line">        &#39;User-agent&#39;:&#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko&#x2F;20100101 Firefox&#x2F;67.0&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    r &#x3D; requests.get(url,headers&#x3D;header)</span><br><span class="line">    r.encoding &#x3D; &#39;utf-8&#39;</span><br><span class="line">    print(r.status_code)</span><br><span class="line">    return r</span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">def processHTML(r):</span><br><span class="line">    &quot;&quot;&quot;使用bs4进行处理&quot;&quot;&quot;</span><br><span class="line">    soup &#x3D; BeautifulSoup(r.text,&#39;html.parser&#39;)</span><br><span class="line">    return soup</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def GetLinksAndTitle(url1,title,links):</span><br><span class="line">    r &#x3D; getHTML(url1)</span><br><span class="line">    soup &#x3D; processHTML(r)</span><br><span class="line">    print(&#39;要下载的动漫为：&#39;+str(soup.h1.string))</span><br><span class="line">    a &#x3D; soup.findAll(style&#x3D;&quot;display:block&quot;)</span><br><span class="line">    href &#x3D; a[0].find_all(&#39;a&#39;)</span><br><span class="line">    for i in range(0,len(href)):</span><br><span class="line">        title.append(href[i].text)</span><br><span class="line">        links.append(&#39;http:&#x2F;&#x2F;www.xxxx&#39; + href[i][&#39;href&#39;])</span><br><span class="line">    </span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">def getmp4(link):</span><br><span class="line">    &quot;&quot;&quot;提取页面中的视频文件链接&quot;&quot;&quot;</span><br><span class="line">    r &#x3D; getHTML(link)</span><br><span class="line">    soup &#x3D; processHTML(r)</span><br><span class="line">    s &#x3D; soup.select(&#39;div#playbox&#39;)</span><br><span class="line">    geturl &#x3D; re.compile(&#39;^https.*\.mp4&#39;)</span><br><span class="line">    mo &#x3D; geturl.search(s[0].attrs[&#39;data-vid&#39;])</span><br><span class="line">    return(str(mo.group()))</span><br><span class="line">    #download(str(mo.group()), title)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def download(mp4link,title):</span><br><span class="line">    &quot;&quot;&quot;下载视频&quot;&quot;&quot;</span><br><span class="line">    #r &#x3D; GetMp4HTML(mp4link)</span><br><span class="line">    print(mp4link)</span><br><span class="line">    try:</span><br><span class="line">         with open(title+&#39;.mp4&#39;,&#39;wb&#39;) as f:</span><br><span class="line">             f.write(r.content)</span><br><span class="line">             print(title+&#39;下载成功&#39;)</span><br><span class="line">    except:</span><br><span class="line">         print(title+&#39;下载失败&#39;)</span><br><span class="line">    </span><br><span class="line">            </span><br><span class="line">def main():</span><br><span class="line">    title &#x3D; []</span><br><span class="line">    links&#x3D;[]</span><br><span class="line">    url &#x3D; &#39;http:&#x2F;&#x2F;www.xxx&#x2F;show&#x2F;4790.html&#39;</span><br><span class="line">    GetLinksAndTitle(url, title, links)</span><br><span class="line">    for i in range(0,len(links)):#下载全部使用len(links)</span><br><span class="line">        mp4link &#x3D; getmp4(links[i])</span><br><span class="line">        download(mp4link, title[i])</span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
 
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">GetMp4HTML</span>(<span class="hljs-params">url</span>):</span>
-    <span class="hljs-string">&quot;&quot;&quot;访问网站获取页面，返回页面&quot;&quot;&quot;</span>
-    header = &#123;
-        <span class="hljs-string">&#x27;User-agent&#x27;</span>:<span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0&#x27;</span>
-    &#125;
-    r = requests.get(url,headers=header)
-    r.encoding = <span class="hljs-string">&#x27;utf-8&#x27;</span>
-    print(r.status_code)
-    <span class="hljs-keyword">return</span> r
+    </div>
 
-      
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">processHTML</span>(<span class="hljs-params">r</span>):</span>
-    <span class="hljs-string">&quot;&quot;&quot;使用bs4进行处理&quot;&quot;&quot;</span>
-    soup = BeautifulSoup(r.text,<span class="hljs-string">&#x27;html.parser&#x27;</span>)
-    <span class="hljs-keyword">return</span> soup
-
-
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">GetLinksAndTitle</span>(<span class="hljs-params">url1,title,links</span>):</span>
-    r = getHTML(url1)
-    soup = processHTML(r)
-    print(<span class="hljs-string">&#x27;要下载的动漫为：&#x27;</span>+str(soup.h1.string))
-    a = soup.findAll(style=<span class="hljs-string">&quot;display:block&quot;</span>)
-    href = a[<span class="hljs-number">0</span>].find_all(<span class="hljs-string">&#x27;a&#x27;</span>)
-    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,len(href)):
-        title.append(href[i].text)
-        links.append(<span class="hljs-string">&#x27;http://www.xxxx&#x27;</span> + href[i][<span class="hljs-string">&#x27;href&#x27;</span>])
     
-        
+
     
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getmp4</span>(<span class="hljs-params">link</span>):</span>
-    <span class="hljs-string">&quot;&quot;&quot;提取页面中的视频文件链接&quot;&quot;&quot;</span>
-    r = getHTML(link)
-    soup = processHTML(r)
-    s = soup.select(<span class="hljs-string">&#x27;div#playbox&#x27;</span>)
-    geturl = re.compile(<span class="hljs-string">&#x27;^https.*\.mp4&#x27;</span>)
-    mo = geturl.search(s[<span class="hljs-number">0</span>].attrs[<span class="hljs-string">&#x27;data-vid&#x27;</span>])
-    <span class="hljs-keyword">return</span>(str(mo.group()))
-    <span class="hljs-comment">#download(str(mo.group()), title)</span>
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/爬虫项目/">#爬虫项目</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
 
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">download</span>(<span class="hljs-params">mp4link,title</span>):</span>
-    <span class="hljs-string">&quot;&quot;&quot;下载视频&quot;&quot;&quot;</span>
-    <span class="hljs-comment">#r = GetMp4HTML(mp4link)</span>
-    print(mp4link)
-    <span class="hljs-keyword">try</span>:
-         <span class="hljs-keyword">with</span> open(title+<span class="hljs-string">&#x27;.mp4&#x27;</span>,<span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> f:
-             f.write(r.content)
-             print(title+<span class="hljs-string">&#x27;下载成功&#x27;</span>)
-    <span class="hljs-keyword">except</span>:
-         print(title+<span class="hljs-string">&#x27;下载失败&#x27;</span>)
-    
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a target="_blank" rel="noopener" href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
             
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span>
-    title = []
-    links=[]
-    url = <span class="hljs-string">&#x27;http://www.xxx/show/4790.html&#x27;</span>
-    GetLinksAndTitle(url, title, links)
-    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>,len(links)):<span class="hljs-comment">#下载全部使用len(links)</span>
-        mp4link = getmp4(links[i])
-        download(mp4link, title[i])
-main()</code></pre>
-
-
-      
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/12/python%E6%93%8D%E4%BD%9Cmysql/">mysqlclient简单使用</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/12/conda%E5%AE%89%E8%A3%85mysqlclient%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">conda安装mysqlclient遇到的问题</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/%E6%9F%90%E5%8A%A8%E6%BC%AB%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E7%88%AC%E8%99%AB/">某动漫网站视频爬虫</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/08/%E7%88%AC%E8%99%AB%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/">爬虫中文乱码及解决</a>
+            </li>
+            
+        </ul>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/10/%E6%9F%90%E5%8A%A8%E6%BC%AB%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E7%88%AC%E8%99%AB/" data-id="ckf7kpee6000cf0v79ycogyxz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/" rel="tag">爬虫项目</a></li></ul>
 
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2020/09/12/conda%E5%AE%89%E8%A3%85mysqlclient%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          conda安装mysqlclient遇到的问题
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/09/08/%E7%88%AC%E8%99%AB%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">爬虫中文乱码及解决</div>
-    </a>
-  
-</nav>
 
-  
-</article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BeautifulSoup/" rel="tag">BeautifulSoup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/conda/" rel="tag">conda</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqlclient/" rel="tag">mysqlclient</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openpyxl/" rel="tag">openpyxl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql-libs/" rel="tag">sql-libs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/" rel="tag">爬虫项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A0%81/" rel="tag">编码</a></li></ul>
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://telegram.org/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/BeautifulSoup/" style="font-size: 20px;">BeautifulSoup</a> <a href="/tags/conda/" style="font-size: 10px;">conda</a> <a href="/tags/mysqlclient/" style="font-size: 10px;">mysqlclient</a> <a href="/tags/openpyxl/" style="font-size: 10px;">openpyxl</a> <a href="/tags/sql-libs/" style="font-size: 10px;">sql-libs</a> <a href="/tags/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">爬虫项目</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 15px;">编码</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/09/12/python%E6%93%8D%E4%BD%9Cmysql/">mysqlclient简单使用</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/12/conda%E5%AE%89%E8%A3%85mysqlclient%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">conda安装mysqlclient遇到的问题</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/10/%E6%9F%90%E5%8A%A8%E6%BC%AB%E7%BD%91%E7%AB%99%E8%A7%86%E9%A2%91%E7%88%AC%E8%99%AB/">某动漫网站视频爬虫</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/08/%E7%88%AC%E8%99%AB%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/">爬虫中文乱码及解决</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/08/%E7%88%AC%E8%99%AB%E7%BC%96%E7%A0%81%E4%BB%8B%E7%BB%8D/">爬虫编码介绍</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 JKding233<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- After footer scripts -->
 
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
 
 
-
-
-<script src="/js/script.js"></script>
+<!-- Disqus Comments -->
 
 
 
-
-  </div>
 </body>
+
 </html>
