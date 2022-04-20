@@ -1,411 +1,468 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN" data-default-color-scheme=auto>
 
-<!-- Head tag -->
+
+
 <head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JKding233">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="mysqlclient的简单使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysqlclient简单使用">
+<meta property="og:url" content="http://yoursite.com/2020/09/12/python%E6%93%8D%E4%BD%9Cmysql/index.html">
+<meta property="og:site_name" content="JKding23">
+<meta property="og:description" content="mysqlclient的简单使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/11/wYXlM8.png">
+<meta property="article:published_time" content="2020-09-12T01:13:41.000Z">
+<meta property="article:modified_time" content="2020-10-23T08:56:01.679Z">
+<meta property="article:author" content="JKding233">
+<meta property="article:tag" content="mysqlclient">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/11/wYXlM8.png">
+  
+  
+  <title>mysqlclient简单使用 - JKding23</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
-    <!--Description-->
-    
-        <meta name="description" content="mysqlclient的简单使用">
-    
 
-    <!--Author-->
-    
-        <meta name="author" content="JKding233">
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="mysqlclient简单使用"/>
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="JKding233"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
-
-    <!--Page Cover-->
-    
-
-    
-        <meta name="twitter:card" content="summary" />
-    
+  
     
     
-
-    <!-- Title -->
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/night-owl.min.css" />
     
-    <title>mysqlclient简单使用 - JKding233</title>
+  
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
-    <!-- Google Analytics -->
-    
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
-<meta name="generator" content="Hexo 5.1.1"></head>
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>囚慈</strong>
+    </a>
 
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/about">
-                    About
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/tags">
-                    Tags
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/tools">
-                    Tools
-                </a>
-            </li>
-            
-        </ul>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
+  </div>
 </nav>
 
-<div class="container">
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="mysqlclient简单使用">
+              
+            </span>
 
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-12 09:13" pubdate>
+        2020年9月12日 上午
+      </time>
+    </span>
+  
+</div>
 
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-    </div>
-</header>
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
 
-        <section class="main">
-            
-<div class="post">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15 分钟
+    </span>
+  
 
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/2020/09/12/python%E6%93%8D%E4%BD%9Cmysql/">
-                mysqlclient简单使用
-            </a>
-        </h1>
-        <div class="post-info">
+  
+  
+</div>
+
             
-                <span class="date">2020-09-12</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/爬虫/">爬虫</a>
-                </span>
-            
+          </div>
+
+          
         </div>
+      </div>
     </div>
+  </header>
 
-    <div class="content">
+  <main>
+    
+      
 
-        <!-- Gallery -->
-        
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">mysqlclient简单使用</h1>
+            
+            <div class="markdown-body">
+              <p>mysqlclient的简单使用</p>
+<span id="more"></span>
 
-        <!-- Post Content -->
-        <p>mysqlclient的简单使用</p>
-<a id="more"></a>
 
 
-
-<h2 id="创建数据库表"><a href="#创建数据库表" class="headerlink" title="创建数据库表"></a>创建数据库表</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line">conn = MySQLdb.connect(host = <span class="string">&#x27;localhost&#x27;</span>,user=<span class="string">&#x27;root&#x27;</span>,passwd=<span class="string">&#x27;root&#x27;</span>,db = <span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">cursor = conn.cursor()<span class="comment">#获取游标</span></span><br><span class="line"><span class="comment">#如果已经存在该表则使用execute()方法删除</span></span><br><span class="line">cursor.execute(<span class="string">&quot;drop table if exists conda&quot;</span>)</span><br><span class="line"><span class="comment">#创建数据表SQL语句</span></span><br><span class="line">sql = <span class="string">&quot;&quot;&quot;create table conda(</span></span><br><span class="line"><span class="string">        first_name char(10) not null,</span></span><br><span class="line"><span class="string">        last_name char(10),</span></span><br><span class="line"><span class="string">        age int,</span></span><br><span class="line"><span class="string">        sex char(1))&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">cursor.execute(sql)</span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+<h2 id="创建数据库表"><a href="#创建数据库表" class="headerlink" title="创建数据库表"></a>创建数据库表</h2><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> MySQLdb<br>conn = MySQLdb.connect(host = <span class="hljs-string">&#x27;localhost&#x27;</span>,user=<span class="hljs-string">&#x27;root&#x27;</span>,passwd=<span class="hljs-string">&#x27;root&#x27;</span>,db = <span class="hljs-string">&#x27;test&#x27;</span>)<br>cursor = conn.cursor()<span class="hljs-comment">#获取游标</span><br><span class="hljs-comment">#如果已经存在该表则使用execute()方法删除</span><br>cursor.execute(<span class="hljs-string">&quot;drop table if exists conda&quot;</span>)<br><span class="hljs-comment">#创建数据表SQL语句</span><br>sql = <span class="hljs-string">&quot;&quot;&quot;create table conda(</span><br><span class="hljs-string">        first_name char(10) not null,</span><br><span class="hljs-string">        last_name char(10),</span><br><span class="hljs-string">        age int,</span><br><span class="hljs-string">        sex char(1))&quot;&quot;&quot;</span><br><br>cursor.execute(sql)<br>conn.close()<br></code></pre></div></td></tr></table></figure>
 
 <p>在进行数据库连接时将编码设置为中文</p>
 <p><code>conn = MySQLdb.connect(host = &#39;localhost&#39;,user=&#39;root&#39;,passwd=&#39;root&#39;,db = &#39;test&#39;，charset=&quot;utf-8&quot;)</code></p>
 <p>项目中插入数据</p>
 <p><code>cur.execute(&quot;insert into users (id,username,password) values (%s,%s,%s),(id, user, passwd)&quot;)</code></p>
-<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line"></span><br><span class="line">conn = MySQLdb.connect(host = <span class="string">&#x27;localhost&#x27;</span>,user=<span class="string">&#x27;root&#x27;</span>,passwd=<span class="string">&#x27;root&#x27;</span>,db = <span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">cur = conn.cursor()<span class="comment">#通过数据库连接conn下的cursor()方法创建游标</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    cur.execute(<span class="string">&quot;insert into users (id,username,password) values (&#x27;5&#x27;,&#x27;conda1&#x27;,&#x27;conda321&#x27;)&quot;</span>)</span><br><span class="line">    cur.close() <span class="comment">#关闭游标</span></span><br><span class="line">    conn.commit()<span class="comment"># 提交到数据库执行</span></span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    conn.rollback()</span><br><span class="line"></span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> MySQLdb<br><br>conn = MySQLdb.connect(host = <span class="hljs-string">&#x27;localhost&#x27;</span>,user=<span class="hljs-string">&#x27;root&#x27;</span>,passwd=<span class="hljs-string">&#x27;root&#x27;</span>,db = <span class="hljs-string">&#x27;test&#x27;</span>)<br>cur = conn.cursor()<span class="hljs-comment">#通过数据库连接conn下的cursor()方法创建游标</span><br><span class="hljs-keyword">try</span>:<br>    cur.execute(<span class="hljs-string">&quot;insert into users (id,username,password) values (&#x27;5&#x27;,&#x27;conda1&#x27;,&#x27;conda321&#x27;)&quot;</span>)<br>    cur.close() <span class="hljs-comment">#关闭游标</span><br>    conn.commit()<span class="hljs-comment"># 提交到数据库执行</span><br><span class="hljs-keyword">except</span>:<br>    conn.rollback()<br><br>conn.close()<br></code></pre></div></td></tr></table></figure>
 
 <p>rollback 回滚的意思。 就是数据库里做修改后 （ update ,insert , delete）未commit 之前 使用rollback 可以恢复数据到修改之前。</p>
-<p><img src="https://s1.ax1x.com/2020/09/11/wYXlM8.png" alt="向mysql插入数据"></p>
-<h2 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> MySQLdb</span><br><span class="line"></span><br><span class="line">conn = MySQLdb.connect(host = <span class="string">&#x27;localhost&#x27;</span> ,user = <span class="string">&#x27;root&#x27;</span> ,passwd = <span class="string">&#x27;root&#x27;</span> ,db = <span class="string">&#x27;test&#x27;</span>)</span><br><span class="line"></span><br><span class="line">cur = conn.cursor()</span><br><span class="line"></span><br><span class="line">sql = <span class="string">&quot;SELECT * FROM users WHERE id &gt; 1&quot;</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    cur.execute(sql)            <span class="comment"># 执行sql语句</span></span><br><span class="line">    results = cur.fetchall()    <span class="comment"># 获取所有记录列表</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> results:</span><br><span class="line">        id = row[<span class="number">0</span>]</span><br><span class="line">        username = row[<span class="number">1</span>]</span><br><span class="line">        password = row[<span class="number">2</span>]</span><br><span class="line">        print(<span class="string">&quot;id=%d, username=%s, password=%s&quot;</span> % (id, username, password))</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">&quot;Error: unable to fecth data&quot;</span>)</span><br><span class="line">        </span><br><span class="line">conn.close() <span class="comment">#关闭数据库</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2020/09/11/wYXlM8.png" srcset="/img/loading.gif" lazyload alt="向mysql插入数据"></p>
+<h2 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h2><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> MySQLdb<br><br>conn = MySQLdb.connect(host = <span class="hljs-string">&#x27;localhost&#x27;</span> ,user = <span class="hljs-string">&#x27;root&#x27;</span> ,passwd = <span class="hljs-string">&#x27;root&#x27;</span> ,db = <span class="hljs-string">&#x27;test&#x27;</span>)<br><br>cur = conn.cursor()<br><br>sql = <span class="hljs-string">&quot;SELECT * FROM users WHERE id &gt; 1&quot;</span><br><span class="hljs-keyword">try</span>:<br>    cur.execute(sql)            <span class="hljs-comment"># 执行sql语句</span><br>    results = cur.fetchall()    <span class="hljs-comment"># 获取所有记录列表</span><br>    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> results:<br>        <span class="hljs-built_in">id</span> = row[<span class="hljs-number">0</span>]<br>        username = row[<span class="hljs-number">1</span>]<br>        password = row[<span class="hljs-number">2</span>]<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;id=%d, username=%s, password=%s&quot;</span> % (<span class="hljs-built_in">id</span>, username, password))<br><span class="hljs-keyword">except</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Error: unable to fecth data&quot;</span>)<br>        <br>conn.close() <span class="hljs-comment">#关闭数据库</span><br><br></code></pre></div></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">id=<span class="number">2</span>, username=Alice, password=<span class="number">654321</span></span><br><span class="line">id=<span class="number">3</span>, username=Tom, password=<span class="number">666666</span></span><br><span class="line">id=<span class="number">4</span>, username=conda, password=conda123</span><br><span class="line">id=<span class="number">5</span>, username=conda1, password=conda321</span><br></pre></td></tr></table></figure>
-
-
-    </div>
-
-    
-
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/mysqlclient/">#mysqlclient</a>
-        </div>
-    
-
-    <!-- Comments -->
-    
-
-</div>
-        </section>
-
-    </div>
-</div>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-built_in">id</span>=<span class="hljs-number">2</span>, username=Alice, password=<span class="hljs-number">654321</span><br><span class="hljs-built_in">id</span>=<span class="hljs-number">3</span>, username=Tom, password=<span class="hljs-number">666666</span><br><span class="hljs-built_in">id</span>=<span class="hljs-number">4</span>, username=conda, password=conda123<br><span class="hljs-built_in">id</span>=<span class="hljs-number">5</span>, username=conda1, password=conda321<br></code></pre></div></td></tr></table></figure>
 
 
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    This theme was developed by <a target="_blank" rel="noopener" href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/mysqlclient/">mysqlclient</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
                 </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/22/hashcat/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">hashcat</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/09/12/conda%E5%AE%89%E8%A3%85mysqlclient%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+                        <span class="hidden-mobile">conda安装mysqlclient遇到的问题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
             </div>
+
             
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2020/10/23/vulnhub-hackme/">vulnhub-hackme</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/10/22/hashcat/">hashcat</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/12/python%E6%93%8D%E4%BD%9Cmysql/">mysqlclient简单使用</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/12/conda%E5%AE%89%E8%A3%85mysqlclient%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">conda安装mysqlclient遇到的问题</a>
-            </li>
-            
-        </ul>
+          </article>
+        </div>
+      </div>
     </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/">爬虫项目</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/tools/">tools</a>
-        </li>
-        
-    </ul>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-alpha-dust">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://twitter.com/?lang=en">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-dribbble"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://telegram.org/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-telegram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-behance"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://500px.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-500px"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:test@example.com">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
-                </div>
-            </div>
-        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- After footer scripts -->
 
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-
-<script src="/js/main.js"></script>
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-<!-- Disqus Comments -->
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>
-
 </html>

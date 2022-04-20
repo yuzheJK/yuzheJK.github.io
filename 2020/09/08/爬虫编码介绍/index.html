@@ -1,188 +1,249 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN" data-default-color-scheme=auto>
 
-<!-- Head tag -->
+
+
 <head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JKding233">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="编码字符编码字符串的编码有两大类  通用的Unicode编码 将Unicode转化成的某种类型的编码，如UTF-8、GBK等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫编码介绍">
+<meta property="og:url" content="http://yoursite.com/2020/09/08/%E7%88%AC%E8%99%AB%E7%BC%96%E7%A0%81%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="JKding23">
+<meta property="og:description" content="编码字符编码字符串的编码有两大类  通用的Unicode编码 将Unicode转化成的某种类型的编码，如UTF-8、GBK等">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-08T12:49:04.000Z">
+<meta property="article:modified_time" content="2022-01-12T05:14:50.929Z">
+<meta property="article:author" content="JKding233">
+<meta property="article:tag" content="编码">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>爬虫编码介绍 - JKding23</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
-    <!--Description-->
-    
-        <meta name="description" content="编码字符编码字符串的编码有两大类
 
-通用的Unicode编码
-将Unicode转化成的某种类型的编码，如UTF-8、GBK等">
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
-    <!--Author-->
-    
-        <meta name="author" content="JKding233">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="爬虫编码介绍"/>
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="JKding233"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
-
-    <!--Page Cover-->
-    
-
-    
-        <meta name="twitter:card" content="summary" />
+  
     
     
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/night-owl.min.css" />
     
+  
 
-    <!-- Title -->
-    
-    <title>爬虫编码介绍 - JKding233</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
-    <!-- Google Analytics -->
-    
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
-<meta name="generator" content="Hexo 5.1.1"></head>
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>囚慈</strong>
+    </a>
 
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/about">
-                    About
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/tags">
-                    Tags
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/tools">
-                    Tools
-                </a>
-            </li>
-            
-        </ul>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
+  </div>
 </nav>
 
-<div class="container">
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="爬虫编码介绍">
+              
+            </span>
 
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-08 20:49" pubdate>
+        2020年9月8日 晚上
+      </time>
+    </span>
+  
+</div>
 
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-    </div>
-</header>
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
 
-        <section class="main">
-            
-<div class="post">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12 分钟
+    </span>
+  
 
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/2020/09/08/%E7%88%AC%E8%99%AB%E7%BC%96%E7%A0%81%E4%BB%8B%E7%BB%8D/">
-                爬虫编码介绍
-            </a>
-        </h1>
-        <div class="post-info">
+  
+  
+</div>
+
             
-                <span class="date">2020-09-08</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/爬虫/">爬虫</a>
-                </span>
-            
+          </div>
+
+          
         </div>
+      </div>
     </div>
+  </header>
 
-    <div class="content">
+  <main>
+    
+      
 
-        <!-- Gallery -->
-        
-
-        <!-- Post Content -->
-        <h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p>字符串的编码有两大类</p>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">爬虫编码介绍</h1>
+            
+            <div class="markdown-body">
+              <h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p>字符串的编码有两大类</p>
 <ul>
 <li>通用的Unicode编码</li>
 <li>将Unicode转化成的某种类型的编码，如UTF-8、GBK等</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <blockquote>
 <p>Unicode被称为万国码，它为每种语言中的每个字符设定了统一并且唯一的二进制编码，大概包含了100多万个符号</p>
@@ -195,25 +256,29 @@
 <h2 id="python的字符编码"><a href="#python的字符编码" class="headerlink" title="python的字符编码"></a>python的字符编码</h2><p> 在python3中，字符串的编码使用str和bytes两种类型</p>
 <p> （1）str字符串：使用Unicode编码</p>
 <p> （2）bytes字符串：使用将Unicode转化成的某种类型的编码，如UTF-8、GBK</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">&quot;我们&quot;</span></span><br><span class="line">str_utf8 = str.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">print(str_utf8)</span><br><span class="line">print(type(str_utf8))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-built_in">str</span> = <span class="hljs-string">&quot;我们&quot;</span><br>str_utf8 = <span class="hljs-built_in">str</span>.encode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br><span class="hljs-built_in">print</span>(str_utf8)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(str_utf8))<br></code></pre></div></td></tr></table></figure>
 
-<pre><code>b&#39;\xe6\x88\x91\xe4\xbb\xac&#39;
-&lt;class &#39;bytes&#39;&gt;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str_decode = str.encode(<span class="string">&#x27;utf-8&#x27;</span>).decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">print(str_decode)</span><br><span class="line">print(type(str_decode))</span><br></pre></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs">b&#39;\xe6\x88\x91\xe4\xbb\xac&#39;
+&lt;class &#39;bytes&#39;&gt;
+</code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">str_decode = <span class="hljs-built_in">str</span>.encode(<span class="hljs-string">&#x27;utf-8&#x27;</span>).decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br><span class="hljs-built_in">print</span>(str_decode)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(str_decode))<br></code></pre></div></td></tr></table></figure>
 
-<pre><code>我们
-&lt;class &#39;str&#39;&gt;</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line">str_gbk = <span class="string">&quot;我们&quot;</span>.encode(<span class="string">&#x27;gbk&#x27;</span>)</span><br><span class="line">chardet.detect(str_gbk)</span><br></pre></td></tr></table></figure>
+<div class="hljs code-wrapper"><pre><code class="hljs">我们
+&lt;class &#39;str&#39;&gt;
+</code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> chardet<br>str_gbk = <span class="hljs-string">&quot;我们&quot;</span>.encode(<span class="hljs-string">&#x27;gbk&#x27;</span>)<br>chardet.detect(str_gbk)<br></code></pre></div></td></tr></table></figure>
 
 
 
 
-<pre><code>&#123;&#39;encoding&#39;: &#39;TIS-620&#39;, &#39;confidence&#39;: 0.8095977270813678, &#39;language&#39;: &#39;Thai&#39;&#125;</code></pre>
+<div class="hljs code-wrapper"><pre><code class="hljs">&#123;&#39;encoding&#39;: &#39;TIS-620&#39;, &#39;confidence&#39;: 0.8095977270813678, &#39;language&#39;: &#39;Thai&#39;&#125;
+</code></pre></div>
 <p>如果想把UTF-8转成其他非unicode编码，那么必须decode成unicode，再encode为其它非unicode编码，如GBK</p>
 <p>encode转换为其他非unicode编码的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str_utf8 = <span class="string">&quot;我们&quot;</span>.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">str_gbk = str_utf8.decode(<span class="string">&#x27;utf-8&#x27;</span>).encode(<span class="string">&#x27;gbk&#x27;</span>)</span><br><span class="line">print(str_gbk)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">str_utf8 = <span class="hljs-string">&quot;我们&quot;</span>.encode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>str_gbk = str_utf8.decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>).encode(<span class="hljs-string">&#x27;gbk&#x27;</span>)<br><span class="hljs-built_in">print</span>(str_gbk)<br></code></pre></div></td></tr></table></figure>
 
-<pre><code>b&#39;\xce\xd2\xc3\xc7&#39;</code></pre>
+<div class="hljs code-wrapper"><pre><code class="hljs">b&#39;\xce\xd2\xc3\xc7&#39;
+</code></pre></div>
 <p class='div-border green'>使用Requests获得网站内容后，发现中文显示乱码</p>
 
 <p class='div-border green'>将某个字符decode的时候，字符中有非法字符，程序抛出异常</p>
@@ -223,218 +288,209 @@
 <p class='div-border green'>写入和读取文件的时候，文件显示的字符串不是正确的中文</p>
 
 
-    </div>
-
-    
-
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/编码/">#编码</a>
-        </div>
-    
-
-    <!-- Comments -->
-    
-
-</div>
-        </section>
-
-    </div>
-</div>
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    This theme was developed by <a target="_blank" rel="noopener" href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A0%81/">编码</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
                 </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/09/08/%E7%88%AC%E8%99%AB%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E5%8F%8A%E8%A7%A3%E5%86%B3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">爬虫中文乱码及解决</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/24/%E8%BF%87%E6%BB%A4%E5%99%A8/">
+                        <span class="hidden-mobile">过滤器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
             </div>
+
             
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2020/10/23/vulnhub-hackme/">vulnhub-hackme</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/10/22/hashcat/">hashcat</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/12/python%E6%93%8D%E4%BD%9Cmysql/">mysqlclient简单使用</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/12/conda%E5%AE%89%E8%A3%85mysqlclient%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">conda安装mysqlclient遇到的问题</a>
-            </li>
-            
-        </ul>
+          </article>
+        </div>
+      </div>
     </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/">爬虫项目</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/tools/">tools</a>
-        </li>
-        
-    </ul>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-alpha-dust">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://twitter.com/?lang=en">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-dribbble"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://telegram.org/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-telegram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-behance"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://500px.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-500px"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:test@example.com">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
-                </div>
-            </div>
-        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- After footer scripts -->
 
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-
-<script src="/js/main.js"></script>
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-<!-- Disqus Comments -->
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>
-
 </html>

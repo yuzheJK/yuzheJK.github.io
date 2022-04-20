@@ -1,213 +1,279 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN" data-default-color-scheme=auto>
 
-<!-- Head tag -->
+
+
 <head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JKding233">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="BeautifulSoup系列文章">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bs4help(1)">
+<meta property="og:url" content="http://yoursite.com/2020/08/17/bs4help/index.html">
+<meta property="og:site_name" content="JKding23">
+<meta property="og:description" content="BeautifulSoup系列文章">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/08/17/1qPGYCoTjWAn4pt.png">
+<meta property="article:published_time" content="2020-08-17T10:21:11.000Z">
+<meta property="article:modified_time" content="2022-04-20T05:34:32.677Z">
+<meta property="article:author" content="JKding233">
+<meta property="article:tag" content="BeautifulSoup">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.loli.net/2020/08/17/1qPGYCoTjWAn4pt.png">
+  
+  
+  <title>bs4help(1) - JKding23</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
-    <!--Description-->
-    
-        <meta name="description" content="BeautifulSoup系列文章">
-    
 
-    <!--Author-->
-    
-        <meta name="author" content="JKding233">
-    
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="bs4help(1)"/>
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="JKding233"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
-
-    <!--Page Cover-->
-    
-
-    
-        <meta name="twitter:card" content="summary" />
-    
+  
     
     
-
-    <!-- Title -->
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/night-owl.min.css" />
     
-    <title>bs4help(1) - JKding233</title>
+  
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
-    <!-- Google Analytics -->
-    
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
-<meta name="generator" content="Hexo 5.1.1"></head>
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>囚慈</strong>
+    </a>
 
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/about">
-                    About
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/tags">
-                    Tags
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
             </li>
-            
-            <li class="menu-item">
-                <a href="/tools">
-                    Tools
-                </a>
-            </li>
-            
-        </ul>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
+  </div>
 </nav>
 
-<div class="container">
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="bs4help(1)">
+              
+            </span>
 
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-08-17 18:21" pubdate>
+        2020年8月17日 晚上
+      </time>
+    </span>
+  
+</div>
 
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-    </div>
-</header>
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.9k 字
+    </span>
+  
 
-        <section class="main">
-            
-<div class="post">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      41 分钟
+    </span>
+  
 
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/2020/08/17/bs4help/">
-                bs4help(1)
-            </a>
-        </h1>
-        <div class="post-info">
+  
+  
+</div>
+
             
-                <span class="date">2020-08-17</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/爬虫/">爬虫</a>
-                </span>
-            
+          </div>
+
+          
         </div>
+      </div>
     </div>
+  </header>
 
-    <div class="content">
+  <main>
+    
+      
 
-        <!-- Gallery -->
-        
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">bs4help(1)</h1>
+            
+            <div class="markdown-body">
+              <p>BeautifulSoup系列文章</p>
+<span id="more"></span>
 
-        <!-- Post Content -->
-        <p>BeautifulSoup系列文章</p>
-<a id="more"></a>
-
-<h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><h2 id="获取网页"><a href="#获取网页" class="headerlink" title="获取网页"></a>获取网页</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> requests</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = requests.get(<span class="string">&quot;http://python123.io/ws/demo.html&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><h2 id="获取网页"><a href="#获取网页" class="headerlink" title="获取网页"></a>获取网页</h2><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> requests<br><span class="hljs-meta">&gt;&gt;&gt; </span>r = requests.get(<span class="hljs-string">&quot;http://python123.io/ws/demo.html&quot;</span>)<br></code></pre></div></td></tr></table></figure>
 
 <p>使用BeautifulSoup处理网页</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup =  BeautifulSoup(r.text,<span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(soup.prettify())</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><span class="hljs-meta">&gt;&gt;&gt; </span>soup =  BeautifulSoup(r.text,<span class="hljs-string">&#x27;html.parser&#x27;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(soup.prettify())<br></code></pre></div></td></tr></table></figure>
 <p>处理后的网页</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span></span><br><span class="line">   This is a python demo page</span><br><span class="line">  <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">b</span>&gt;</span></span><br><span class="line">    The demo python introduces several python courses.</span><br><span class="line">   <span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;course&quot;</span>&gt;</span></span><br><span class="line">   Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:</span><br><span class="line">   <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;py1&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://www.icourse163.org/course/BIT-268001&quot;</span> <span class="attr">id</span>=<span class="string">&quot;link1&quot;</span>&gt;</span></span><br><span class="line">    Basic Python</span><br><span class="line">   <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">   and</span><br><span class="line">   <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;py2&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://www.icourse163.org/course/BIT-1001870001&quot;</span> <span class="attr">id</span>=<span class="string">&quot;link2&quot;</span>&gt;</span></span><br><span class="line">    Advanced Python</span><br><span class="line">   <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">   .</span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><br>   This is a python demo page<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;title&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span><br>    The demo python introduces several python courses.<br>   <span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;course&quot;</span>&gt;</span><br>   Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:<br>   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;py1&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://www.icourse163.org/course/BIT-268001&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;link1&quot;</span>&gt;</span><br>    Basic Python<br>   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>   and<br>   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;py2&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://www.icourse163.org/course/BIT-1001870001&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;link2&quot;</span>&gt;</span><br>    Advanced Python<br>   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>   .<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 <h2 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h2><p>使用tag标签提取网页内容</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.title</span><br><span class="line">&lt;title&gt;This is a python demo page&lt;/title&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.p</span><br><span class="line">&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.a</span><br><span class="line">&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>soup.title<br>&lt;title&gt;This is a python demo page&lt;/title&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.p<br>&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.a<br>&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt;<br><br></code></pre></div></td></tr></table></figure>
 
 <blockquote>
 <p>当HTML文档中存在多个相同<tag>对应内容时，soup.<tag>返回第一个</p>
 </blockquote>
-<h3 id="Tag的name"><a href="#Tag的name" class="headerlink" title="Tag的name"></a>Tag的name</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.a.name</span><br><span class="line"><span class="string">&#x27;a&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.a.parent.name</span><br><span class="line"><span class="string">&#x27;p&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Tag的name"><a href="#Tag的name" class="headerlink" title="Tag的name"></a>Tag的name</h3><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>soup.a.name<br><span class="hljs-string">&#x27;a&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.a.parent.name<br><span class="hljs-string">&#x27;p&#x27;</span><br></code></pre></div></td></tr></table></figure>
 <blockquote>
 <p>每个<tag>都有自己的名字，通过<tag>.name获取，字符串类型</p>
 </blockquote>
-<h3 id="tag的attrs-属性"><a href="#tag的attrs-属性" class="headerlink" title="tag的attrs(属性)"></a>tag的attrs(属性)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.a.attrs</span><br><span class="line">&#123;<span class="string">&#x27;href&#x27;</span>: <span class="string">&#x27;http://www.icourse163.org/course/BIT-268001&#x27;</span>, <span class="string">&#x27;class&#x27;</span>: [<span class="string">&#x27;py1&#x27;</span>], <span class="string">&#x27;id&#x27;</span>: <span class="string">&#x27;link1&#x27;</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.a.attrs[<span class="string">&#x27;class&#x27;</span>]</span><br><span class="line">[<span class="string">&#x27;py1&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(soup.a.attrs)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">dict</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span>(<span class="params">soup.a.attrs[<span class="string">&#x27;class&#x27;</span>]</span>)</span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> &#x27;<span class="title">list</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="tag的attrs-属性"><a href="#tag的attrs-属性" class="headerlink" title="tag的attrs(属性)"></a>tag的attrs(属性)</h3><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>soup.a.attrs<br>&#123;<span class="hljs-string">&#x27;href&#x27;</span>: <span class="hljs-string">&#x27;http://www.icourse163.org/course/BIT-268001&#x27;</span>, <span class="hljs-string">&#x27;class&#x27;</span>: [<span class="hljs-string">&#x27;py1&#x27;</span>], <span class="hljs-string">&#x27;id&#x27;</span>: <span class="hljs-string">&#x27;link1&#x27;</span>&#125;<br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.a.attrs[<span class="hljs-string">&#x27;class&#x27;</span>]<br>[<span class="hljs-string">&#x27;py1&#x27;</span>]<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(soup.a.attrs)<br>&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">dict</span>&#x27;&gt;</span><br><span class="hljs-class">&gt;&gt;&gt; <span class="hljs-title">type</span>(<span class="hljs-params">soup.a.attrs[<span class="hljs-string">&#x27;class&#x27;</span>]</span>)</span><br><span class="hljs-class">&lt;<span class="hljs-title">class</span> &#x27;<span class="hljs-title">list</span>&#x27;&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-<h3 id="Tag的NavigableString"><a href="#Tag的NavigableString" class="headerlink" title="Tag的NavigableString"></a>Tag的NavigableString</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.a.string</span><br><span class="line"><span class="string">&#x27;Basic Python&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.p.srting</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.p</span><br><span class="line">&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.p.text</span><br><span class="line"><span class="string">&#x27;The demo python introduces several python courses.&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Tag的NavigableString"><a href="#Tag的NavigableString" class="headerlink" title="Tag的NavigableString"></a>Tag的NavigableString</h3><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>soup.a.string<br><span class="hljs-string">&#x27;Basic Python&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.p.srting<br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.p<br>&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.p.text<br><span class="hljs-string">&#x27;The demo python introduces several python courses.&#x27;</span><br></code></pre></div></td></tr></table></figure>
 
 <blockquote>
 <p>string输出当前标签的tring，而text输出标签内存在的文本</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.b</span><br><span class="line">&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.b.string</span><br><span class="line"><span class="string">&#x27;The demo python introduces several python courses.&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.b.text</span><br><span class="line"><span class="string">&#x27;The demo python introduces several python courses.&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(soup.b.string)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span>(<span class="params">soup.b.text</span>)</span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> &#x27;<span class="title">str</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>soup.b<br>&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.b.string<br><span class="hljs-string">&#x27;The demo python introduces several python courses.&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.b.text<br><span class="hljs-string">&#x27;The demo python introduces several python courses.&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(soup.b.string)<br>&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">bs4</span>.<span class="hljs-title">element</span>.<span class="hljs-title">NavigableString</span>&#x27;&gt;</span><br><span class="hljs-class">&gt;&gt;&gt; <span class="hljs-title">type</span>(<span class="hljs-params">soup.b.text</span>)</span><br><span class="hljs-class">&lt;<span class="hljs-title">class</span> &#x27;<span class="hljs-title">str</span>&#x27;&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="tag的Comment"><a href="#tag的Comment" class="headerlink" title="tag的Comment"></a>tag的Comment</h3><blockquote>
 <p>标签内字符串的注释部分，一种特殊的Comment类型</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>newsoup = BeautifulSoup(<span class="string">&quot;&lt;b&gt;&lt;!--a comment--&gt;&lt;/b&gt;&lt;p&gt;not a comment&lt;/p&gt;&quot;</span>,<span class="string">&quot;html.parser&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>newsoup.b.string</span><br><span class="line"><span class="string">&#x27;a comment&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>newsoup.p.string</span><br><span class="line"><span class="string">&#x27;not a comment&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(newsoup.b.string)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Comment</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span>(<span class="params">newsoup.p.string</span>)</span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> &#x27;<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>newsoup = BeautifulSoup(<span class="hljs-string">&quot;&lt;b&gt;&lt;!--a comment--&gt;&lt;/b&gt;&lt;p&gt;not a comment&lt;/p&gt;&quot;</span>,<span class="hljs-string">&quot;html.parser&quot;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span>newsoup.b.string<br><span class="hljs-string">&#x27;a comment&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>newsoup.p.string<br><span class="hljs-string">&#x27;not a comment&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(newsoup.b.string)<br>&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">bs4</span>.<span class="hljs-title">element</span>.<span class="hljs-title">Comment</span>&#x27;&gt;</span><br><span class="hljs-class">&gt;&gt;&gt; <span class="hljs-title">type</span>(<span class="hljs-params">newsoup.p.string</span>)</span><br><span class="hljs-class">&lt;<span class="hljs-title">class</span> &#x27;<span class="hljs-title">bs4</span>.<span class="hljs-title">element</span>.<span class="hljs-title">NavigableString</span>&#x27;&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-<h2 id="基于bs4库的HTML内容遍历方法"><a href="#基于bs4库的HTML内容遍历方法" class="headerlink" title="基于bs4库的HTML内容遍历方法"></a>基于bs4库的HTML内容遍历方法</h2><p><img src="https://i.loli.net/2020/08/17/1qPGYCoTjWAn4pt.png" alt="image-20200817180535262"></p>
+<h2 id="基于bs4库的HTML内容遍历方法"><a href="#基于bs4库的HTML内容遍历方法" class="headerlink" title="基于bs4库的HTML内容遍历方法"></a>基于bs4库的HTML内容遍历方法</h2><p><img src="https://i.loli.net/2020/08/17/1qPGYCoTjWAn4pt.png" srcset="/img/loading.gif" lazyload alt="image-20200817180535262"></p>
 <h2 id="下行遍历"><a href="#下行遍历" class="headerlink" title="下行遍历"></a>下行遍历</h2><table>
 <thead>
 <tr>
@@ -228,9 +294,9 @@
 <td align="center">子孙节点的迭代类型，包含所有子孙节点，用于循环遍历</td>
 </tr>
 </tbody></table>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.head</span><br><span class="line">&lt;head&gt;&lt;title&gt;This is a python demo page&lt;/title&gt;&lt;/head&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.head.contents</span><br><span class="line">[&lt;title&gt;This is a python demo page&lt;/title&gt;]</span><br></pre></td></tr></table></figure>
-<h3 id="遍历儿子节点"><a href="#遍历儿子节点" class="headerlink" title="遍历儿子节点"></a>遍历儿子节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> soup.body.children:</span><br><span class="line">	print(child)</span><br></pre></td></tr></table></figure>
-<h3 id="遍历子孙节点"><a href="#遍历子孙节点" class="headerlink" title="遍历子孙节点"></a>遍历子孙节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> soup.body.descendants:</span><br><span class="line">	print(child)</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>soup.head<br>&lt;head&gt;&lt;title&gt;This is a python demo page&lt;/title&gt;&lt;/head&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.head.contents<br>[&lt;title&gt;This is a python demo page&lt;/title&gt;]<br></code></pre></div></td></tr></table></figure>
+<h3 id="遍历儿子节点"><a href="#遍历儿子节点" class="headerlink" title="遍历儿子节点"></a>遍历儿子节点</h3><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">for</span> child <span class="hljs-keyword">in</span> soup.body.children:<br>	<span class="hljs-built_in">print</span>(child)<br></code></pre></div></td></tr></table></figure>
+<h3 id="遍历子孙节点"><a href="#遍历子孙节点" class="headerlink" title="遍历子孙节点"></a>遍历子孙节点</h3><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">for</span> child <span class="hljs-keyword">in</span> soup.body.descendants:<br>	<span class="hljs-built_in">print</span>(child)<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="上行遍历"><a href="#上行遍历" class="headerlink" title="上行遍历"></a>上行遍历</h2><table>
 <thead>
@@ -248,10 +314,10 @@
 <td align="center">节点先辈标签的迭代类型，用于循环遍历先辈节点</td>
 </tr>
 </tbody></table>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.title.parent</span><br><span class="line">&lt;head&gt;&lt;title&gt;This is a python demo page&lt;/title&gt;&lt;/head&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.head.parent</span><br><span class="line">&lt;html&gt;&lt;head&gt;&lt;title&gt;This is a python demo page&lt;/title&gt;&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;</span><br><span class="line">&lt;p class=&quot;course&quot;&gt;Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:</span><br><span class="line"></span><br><span class="line">&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt; and &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;.&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;&lt;/html&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(soup.parent)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">NoneType</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>soup.title.parent<br>&lt;head&gt;&lt;title&gt;This is a python demo page&lt;/title&gt;&lt;/head&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span>soup.head.parent<br>&lt;html&gt;&lt;head&gt;&lt;title&gt;This is a python demo page&lt;/title&gt;&lt;/head&gt;<br>&lt;body&gt;<br>&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;<br>&lt;p class=&quot;course&quot;&gt;Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:<br><br>&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt; and &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;.&lt;/p&gt;<br>&lt;/body&gt;&lt;/html&gt;<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">type</span>(soup.parent)<br>&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">NoneType</span>&#x27;&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>遍历所有先辈节点，包括soup本身，所以要区别判断</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> parent <span class="keyword">in</span> soup.a.parents:</span><br><span class="line">	<span class="keyword">if</span> parent <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">		print(parent)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		print(parent.name)</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">p</span><br><span class="line">body</span><br><span class="line">html</span><br><span class="line">[document]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> parent <span class="hljs-keyword">in</span> soup.a.parents:<br>	<span class="hljs-keyword">if</span> parent <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>		<span class="hljs-built_in">print</span>(parent)<br>	<span class="hljs-keyword">else</span>:<br>		<span class="hljs-built_in">print</span>(parent.name)<br><br>		<br>p<br>body<br>html<br>[document]<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="平行遍历"><a href="#平行遍历" class="headerlink" title="平行遍历"></a>平行遍历</h2><table>
 <thead>
@@ -277,220 +343,211 @@
 <td align="center">迭代类型，返回按照HTML文本顺序的前续所有平行节点标签</td>
 </tr>
 </tbody></table>
-<h3 id="遍历后续节点"><a href="#遍历后续节点" class="headerlink" title="遍历后续节点"></a>遍历后续节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> subling <span class="keyword">in</span> soup.a.next_sibling:</span><br><span class="line">	print(sibling)</span><br></pre></td></tr></table></figure>
-<h3 id="遍历前续节点"><a href="#遍历前续节点" class="headerlink" title="遍历前续节点"></a>遍历前续节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> sibling <span class="keyword">in</span> soup.a.previous_sibling:</span><br><span class="line">	print(sibling)</span><br></pre></td></tr></table></figure>
-    </div>
-
-    
-
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/BeautifulSoup/">#BeautifulSoup</a>
-        </div>
-    
-
-    <!-- Comments -->
-    
-
-</div>
-        </section>
-
-    </div>
-</div>
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    This theme was developed by <a target="_blank" rel="noopener" href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+<h3 id="遍历后续节点"><a href="#遍历后续节点" class="headerlink" title="遍历后续节点"></a>遍历后续节点</h3><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">for</span> subling <span class="hljs-keyword">in</span> soup.a.next_sibling:<br>	<span class="hljs-built_in">print</span>(sibling)<br></code></pre></div></td></tr></table></figure>
+<h3 id="遍历前续节点"><a href="#遍历前续节点" class="headerlink" title="遍历前续节点"></a>遍历前续节点</h3><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">for</span> sibling <span class="hljs-keyword">in</span> soup.a.previous_sibling:<br>	<span class="hljs-built_in">print</span>(sibling)<br></code></pre></div></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/BeautifulSoup/">BeautifulSoup</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
                 </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/17/sql-libs-less-1/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">sql-libs-less-1</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/01/01/Hello-Word/">
+                        <span class="hidden-mobile">Hello Word</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
             </div>
+
             
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2020/10/23/vulnhub-hackme/">vulnhub-hackme</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/10/22/hashcat/">hashcat</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/12/python%E6%93%8D%E4%BD%9Cmysql/">mysqlclient简单使用</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/12/conda%E5%AE%89%E8%A3%85mysqlclient%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">conda安装mysqlclient遇到的问题</a>
-            </li>
-            
-        </ul>
+          </article>
+        </div>
+      </div>
     </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/">爬虫项目</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/tools/">tools</a>
-        </li>
-        
-    </ul>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-alpha-dust">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://twitter.com/?lang=en">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-facebook"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-instagram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-dribbble"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://telegram.org/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-telegram"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-behance"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://500px.com/">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-500px"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:test@example.com">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
-                </div>
-            </div>
-        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
 </footer>
 
-<!-- After footer scripts -->
 
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-
-<script src="/js/main.js"></script>
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-<!-- Disqus Comments -->
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
 </body>
-
 </html>
